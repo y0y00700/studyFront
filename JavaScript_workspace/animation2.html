@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation2</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        #box1{
+            width:300px;
+            height: 300px;
+            background:orange;
+            position: absolute;
+            top:50px;
+            left:50px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#box1").animate({left:"500px"},2000)
+            .animate({top:"500px"},2000)
+            .animate({left:0},2000)
+            .animate({top:"50px"},2000);
+
+            $("#btn1").click(function(){
+                //stop(clearQue, finish)
+                $("#box1").stop();// stop(false,false) 기본값
+                //$("#box1").stop(true,true);
+                //$("#box1").stop(true,false);
+                //$("#box1").stop(false,true);
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <input type="button" value="stop" id="btn1">
+    <span id="box1">jQuery</span>
+    
+</body>
+</html>

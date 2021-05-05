@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>slider</title>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
+    <style>
+
+        .animation_canvas  {
+
+                overflow:hidden;
+
+                position:relative;           
+
+                width:600px; height:400px;
+
+            }
+
+    
+
+        /* Slider Panel */
+
+        .slider_panel { width:3000px; position:relative; }
+
+        .slider_image { float:left; width:600px; height:400px; }
+
+        
+
+        /* Control Panel */
+
+        .control_panel  {
+
+            position:absolute; 
+
+            bottom:10px;
+
+            left:270px;
+
+            overflow:hidden; 
+
+            color:white;
+
+        }
+        .con_pan{
+            position:absolute;
+
+            bottom:10px;
+            left:200px;
+            overflow:hidden;
+            color:blue;
+        }
+        
+
+        .dot{
+
+            font-size:30px;
+
+            cursor:pointer;  /*마우스가 올라갔을때 포인트 커서로 바꿈 */
+
+        }
+        .active{
+            color:blue;
+        }
+        .move{
+            right:600px;
+        }
+    </style>
+
+    <script>
+
+        $(document).ready(function () {
+
+            // 슬라이더를 움직여주는 함수
+
+            function moveSlider(index){
+
+                var willMoveLeft = -(index * 600);
+
+                $('.slider_panel').animate({ left: willMoveLeft }, 'slow');
+
+            };
+
+            
+
+            $(".dot").click(function(){
+
+                moveSlider($(this).index());
+
+            });
+
+        });
+   
+
+
+        $(function(){
+            $(".dot").click(function(){
+                $(".dot").removeClass("active");//초기화
+                $(this).addClass("active");//클릭한 링크 active
+            });
+            $(".next").click(function(){
+                var willMoveRight= -((index*600)+600);
+                $('.slider_panel').animate({ left: willMoveRight }, 'slow');
+            });
+            $(".prev").click(function(){
+                var willMoveLeft= -((index*600)-600);
+                $('.slider_panel').animate({ left: willMoveLeft2 }, 'slow');
+            });
+
+        });
+
+    </script>
+
+</head>
+
+<body>
+
+   <div class="animation_canvas">
+
+        <div class="slider_panel">
+
+            <img src="img/pic1.jpg" class="slider_image"/>
+
+            <img src="img/pic2.jpg" class="slider_image"/>
+
+            <img src="img/pic3.jpg" class="slider_image"/>
+
+            <img src="img/pic4.jpg" class="slider_image"/>
+
+            <img src="img/pic5.jpg" class="slider_image"/>
+
+        </div>
+
+        
+
+        <div class="control_panel" style="text-align:center">
+          
+          <span class="dot">*</span> 
+
+          <span class="dot">*</span> 
+
+          <span class="dot">*</span> 
+
+          <span class="dot">*</span>
+
+          <span class="dot">*</span>
+
+         
+        </div>
+        <div class="con_pan">
+            <span class="next">asd</span>
+            <span class="prev">gfg</span>
+        </div>
+    
+
+    
+
+</body>
+
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        *body{
+            margin:0;padding:0;
+        }
+       #box1{
+           border:1px solid black;
+           width:500px;
+           height:300px; 
+           position:relative;
+           text-align: center;
+           background-image: url(/movie/img/4p.png);
+           z-index: 50;
+       }
+       #box2{
+            position:absolute;
+            border:1px solid green;
+            width:200;height:100;
+            left:220px;
+            top:115px;
+            background-image: url(/movie/img/3p.png);
+            z-index:100;
+       }
+       #box1:hover #box2{
+           right:200px;
+       }
+       .btn{
+        color:white;
+        border-radius: 20%;
+       }
+       #video{
+           width:400px;height:300px;
+       }
+    </style>
+</head>
+<body>
+    <div id="box1">
+        
+        <div id="box2">
+            2번박스
+        </div>
+    </div>
+    <a href="#" class="btn">버튼</a>
+    <div>
+        <ul>
+            <a href="#" class="btn" id="htmlbtn">HTML</a>
+            <a href="#" class="btn">CSS</a>
+            <a href="#" class="btn">JAVASCRIPT</a>
+        </ul>
+    </div>
+    <div id="video" style="position:relative;">
+        <video id="mp4video" width="400px" height=auto autoplay loop muted style="position:absolute;border:1px solid black;">
+            <source src="/Netflix/img/video02.m4v" type="video/mp4">
+        </video>
+        <div id="txt" style="position:absolute;border:1px solid red;left:150px;top:170px">
+            <p>This is movie!</p>
+        </div>
+    </div>
+</body>
+</html>

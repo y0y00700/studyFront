@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화소개</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!-- Fotorama from CDNJS, 19 KB -->
+    <link  href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
+</head>
+<body>
+    <div data-role="page" id="page1">
+        <!-- header ---------------------------------------------->
+        <div data-role="header">
+            <h3>영화이미지</h3>
+            <a href="index.html" rel="extenal" data-icon="home" date-iconpos="notext">Home</a>
+            <a href="index.html" rel="extenal" data-icon="back" date-iconpos="notext">Prev</a>
+        </div>
+        <!-- header -->
+        <!-- content --------------------------------------------->
+    <div data-role="ui-content">
+       <div class="fotorama" data-width="100%" data-autoplay="true" data-loop="true">
+        <img src="img/picture01.jpg" alt="이미지1">
+        <img src="img/picture02.jpg" alt="이미지2">
+        <img src="img/picture03.jpg" alt="이미지3">
+        <img src="img/picture04.jpg" alt="이미지4">
+        <img src="img/picture05.jpg" alt="이미지5">
+        <img src="img/picture06.jpg" alt="이미지6">
+       </div>
+                
+    </div>
+        <!-- content -->
+        <!-- footer ---------------------------------------------->
+    <div data-role="footer">
+        <h3>&copy;CGV.All rights reserved.</h3>
+    </div>
+        <!-- footer -->    
+        
+    </div>
+</body>
+</html>

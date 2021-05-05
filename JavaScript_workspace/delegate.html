@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delegate</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#btn1").click(function(){
+                $("#box1").append("<button>버튼</button>");
+            });
+                //delegate 함수 사용
+            $("#box1").delegate("button","click",function(){
+                console.log("클릭");
+            });
+                //on함수 사용
+            //$("#box1").on("click","button",function(){
+            //    console.log("클릭");
+            //});
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="버튼" id="btn1">
+    <div id="box1" style="border:1px solid black">box1</div>
+</body>
+</html>

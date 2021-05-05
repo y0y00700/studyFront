@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>addClass</title>
+    <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/animate.min.css">
+    <style>
+        #box1{position:absolute;left:20px;top:200px;transition:0.5s;}
+        .go{left:300px!important;}
+    </style>
+    <script>
+        $(function(){
+            $("#btn1").click(function(){
+                $("#box1").addClass("go");
+            });
+            $("#btn2").click(function(){
+                $("#box1").removeClass("go");
+            });
+            $("#btn3").click(function(){
+                $("#box1").toggleClass("go");
+            });
+            $("#btn4").click(function(){
+                $("#box1").addClass("animate__animated").addClass("animate__bounce");
+            });            
+        });
+    </script>
+</head>
+<body>
+    <button type="button" id="btn1">버튼1</button>
+    <button type="button" id="btn2">버튼2</button>
+    <button type="button" id="btn3">버튼3</button>
+    <button type="button" id="btn4">버튼4</button>
+    <div id="box1">box</div>
+    
+</body>
+</html>

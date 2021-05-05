@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        body{
+            height:10000px;
+            width: 5000px;
+        }
+    </style>
+    
+    <script>
+        
+        $(window).on("scroll",function(){
+            var sc_top = $(this).scrollTop(); //브라우저의 높이에 따라 달라진다.(해상도에 따른)
+            console.log("scrollTop : "+sc_top);
+
+            var off_top = $("#box1").offset().top;
+            console.log("offsetTop : "+off_top);
+
+            console.log($("#box1").offset().top - $(window).height());
+            if($(this).scrollTop() >$("#box1").offset().top - $(window).height()){
+                //애니메이션 동작
+            }
+        });
+    </script>
+</head>
+<body>
+    <div id="box1" style="border: 1px solid black;margin-top:2500px">
+        box1
+    </div>
+</body>
+</html>

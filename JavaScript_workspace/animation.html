@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        $(function(){
+            $("#btn1").on("click",function(){
+                $("#box1").show();
+            });
+            $("#btn2").on("click",function(){
+                $("#box1").hide();
+            });
+            $("#btn3").on("click",function(){
+                $("#box1").toggle();
+            });
+            $("#btn4").on("click",function(){
+                $("#box1").fadeIn();
+            });
+            $("#btn5").on("click",function(){
+                $("#box1").fadeOut();
+            });
+            $("#btn6").on("click",function(){
+                $("#box1").fadeToggle();
+            });
+            $("#btn7").on("click",function(){
+                $("#box1").slideDown();
+            });
+            $("#btn8").on("click",function(){
+                $("#box1").slideUp();
+            });
+            $("#btn9").on("click",function(){
+                $("#box1").slideToggle();
+            });
+        });
+    </script>
+</head>
+<body>
+    <button type="button" id="btn1">show</button>
+    <button type="button" id="btn2">hide</button>
+    <button type="button" id="btn3">hide</button>
+    <button type="button" id="btn4">fadein</button>
+    <button type="button" id="btn5">fadeout</button>
+    <button type="button" id="btn6">fadeToggle</button>
+    <button type="button" id="btn7">slideDown</button>
+    <button type="button" id="btn8">slideUp</button>
+    <button type="button" id="btn9">slideToggle</button>
+    <div id="box1">box1</div>
+</body>
+</html>

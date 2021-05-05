@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function</title>
+    <script>
+        var count=0;
+        //1. 정석적인 함수 생성법
+        function myFnc (){
+            count++;
+            document.write("Hello "+count,"<br>");
+        }
+        myFnc();
+
+        //2. theFnc라는 포인터(Reference)를 통한 익명함수 생성
+        var theFnc=function(){
+            count++;
+            document.write("Hello "+count,"<br>");
+        }
+        theFnc();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

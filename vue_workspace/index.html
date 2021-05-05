@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <h1>Hello, {{name}}<span v-text="name"></span></h1>
+        <h3>{{address}}</h3>
+        <span v-html="html"></span>
+    </div>
+    
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+        // 새로운 뷰를 정의합니다
+        var app = new Vue({
+        el: '#app', // 어떤 엘리먼트에 적용을 할 지 정합니다
+            // data 는 해당 뷰에서 사용할 정보를 지닙니다
+            data: {
+                name: 'Vue',
+                address:'서울',
+                html:'<i>vue.js</i>',
+                visible:true
+            }   
+        });
+
+        app.name="홍길동";
+    </script>
+</body>
+</html>

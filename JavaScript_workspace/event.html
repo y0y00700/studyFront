@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery.js"></script>
+    <script>
+        function func1(){
+            alert("버튼1");
+        }
+        $(function(){
+            $("#btn2").click(function(){
+                alert("버튼2");
+            $("#btn3").on(function(){
+                alert("버튼3");
+            });
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" onclick="func1()" value="버튼1">
+    <input type="button" value="버튼2" id="btn2">
+    <input type="button" value="버튼3" id="btn3">
+</body>
+</html>

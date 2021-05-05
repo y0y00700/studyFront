@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+<style>
+    li{list-style: none;}    
+</style>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script>
+function setKeyword(keyword){
+    document.form1.keyword.value=keyword;
+    document.getElementById("txtHint").style.display="none";
+}    
+    
+function showHint(str) {
+    console.log(str.length);
+    if (str.length == 0) { 
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+    } else {
+            var output="<ul>";
+            var keyword;
+        
+            //json데이터 전용함수
+            $.getJSON("suggestionJson.php?q="+encodeURI(str),function(data){
+                console.log("test");
+                $.each(data,function(key,value){
+                    
+                    keyword=value.keyword;
+                    
+                    output+="<li><a href='#' onClick='setKeyword(\""+keyword+"\")'>"+keyword+"</a></li>";
+                });
+                
+                 output+="</ul>";
+                    
+                 $("#txtHint").show();
+                 $("#txtHint").html(output); 
+            });
+            
+    }
+}
+    
+$(document).ready(function(){
+      $("#search").keyup(function(){
+          showHint($(this).val());
+      });      
+});
+    
+    
+</script>
+</head>
+<body>
+
+
+<form name="form1"> 
+<input type="text" id="search" name="keyword" placeholder="검색어를 입력하세요" onkeyup="showHint(this.value)">
+</form>
+<div id="txtHint" style="display:none;"></div>
+</body>
+</html>

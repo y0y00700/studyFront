@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화소개</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        #content{padding: 10px;}
+        .ui-grid-a{
+            padding-bottom: 10px;
+        }
+        .ui-block-a img{
+            float:left;
+            margin-right:10px;
+            }
+        .ui-block-a div{
+            color:blue;
+            font-weight: bold;
+        }
+        .ui-block-a span{
+            color:red;
+        }
+        .ui-block-b img{
+            float:left;
+            margin-right:10px;
+            }
+        .ui-block-b div{
+            color:blue;
+            font-weight: bold;
+        }
+        .ui-block-b span{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div data-role="page" id="page1">
+        <!-- header ---------------------------------------------->
+        <div data-role="header">
+            <h3>영화소개</h3>
+            <a href="index.html" rel="extenal" data-icon="home" date-iconpos="notext">Home</a>
+            <a href="index.html" rel="extenal" data-icon="back" date-iconpos="notext">Prev</a>
+        </div>
+        <!-- header -->
+        <!-- navbar----------------------------------------------->
+        <div data-role="navbar">
+            <ul>
+                <li><a href="introduce01.html" rel="external">영화줄거리</a></li>
+                <li><a href="introduce02.html" class="ui-btn-active" rel="external">영화등장인물</a></li>
+                <li><a href="introduce03.html" rel="external">영화평점</a></li>
+            </ul>
+        </div>
+        <!-- /navbar -->
+        <!-- content --------------------------------------------->
+        <div data-role="ui-content" id="content">
+            <h3>영화등장인물</h3>
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <img src="img/actor01.jpg" alt="게리올드만">
+                    <div>게리 올드만</div>
+                    Gary Oldman<br>
+                    <span>주연</span> | 조지 스마일리 역<br>
+                    크라이시스,2021<br>
+                    우먼 인 윈도,2020
+                </div>
+                <div class="ui-block-b">
+                    <img src="img/actor02.jpg" alt="톰하디">
+                    <div>톰 하디</div>
+                    Tom Hardy<br>
+                    <span>주연</span> | 리키 타르 역<br>
+                    베놈: 렛 데어 비 카니지,2020<br>
+                    폰조,2020
+                </div>
+            </div>
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <img src="img/actor03.jpg" alt="콜린퍼스">
+                <div>콜린 퍼스</div>
+                    Colin Firth<br>
+                    <span>주연</span> | 빌 헤이든 역
+                    마더링 선데이,2021<br>
+                    슈퍼노바,2020
+                </div>
+                <div class="ui-block-b">
+                    <img src="img/actor04.jpg" alt="마크스트롱">
+                    <div>마크 스트롱</div>
+                    Mark Strong<br>
+                    <span>주연</span> | 짐 프리도 역 <br>            
+                    크루엘라,2021<br>
+                    1917,2019
+                </div>
+            </div>
+            <div class="ui-grid-a">
+                <div class="ui-block-a">
+                    <img src="img/actor05.jpg" alt="베네딕트">
+                    <div>베네딕트 컴버배치</div>
+                    Benedict Cumberbatch<br>
+                    <span>주연</span> | 피터 길럼 역<br>
+                    닥터 스트레인지 인 더 멀티버스 오브 매드니스,2022<br>
+                    더 파워 오브 더 도그,2021
+                </div>
+                <div class="ui-block-b">
+                    <img src="img/actor06.jpg" alt="스티븐그레이엄">
+                    <div>스티븐 그레이엄</div>
+                    Stephen Graham<br>
+                    <span>주연</span> | 제리 웨스터비 역<br>
+                    베놈: 렛 데어 비 카니지,2020<br>
+                    그레이하운드,2019
+                </div>
+            </div>
+            <!-- content -->
+            <!-- footer ---------------------------------------------->
+            <div data-role="footer">
+                <h3>&copy;CGV.All rights reserved.</h3>
+            </div>
+            <!-- footer -->    
+            
+            </div>
+</body>
+</html>

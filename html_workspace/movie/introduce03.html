@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화소개</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <style>
+        .bg-header{
+            background-color: red !important; /*!important 는 최우선순위적용*/
+            text-shadow: none !important;
+        }
+        #content{padding: 10px;}
+        .ui-grid-a{
+            padding-bottom: 10px;
+        }
+        .ui-block-a img{
+            float:left;
+            margin-right:10px;
+            }
+        .ui-block-a div{
+            color:blue;
+            font-weight: bold;
+        }
+        .ui-block-a span{
+            color:red;
+        }
+        .ui-block-b img{
+            float:left;
+            margin-right:10px;
+            }
+        .ui-block-b div{
+            color:blue;
+            font-weight: bold;
+        }
+        .ui-block-b span{
+            color:red;
+        }
+    </style>
+    <!-- Google chart---------------------------------------------------------------->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['평점', 'Count'],
+          ['1점',     10],
+          ['2점',      20],
+          ['3점',  50],
+          ['4점', 90],
+          ['5점',    200]
+        ]);
+
+        var options = {
+          title: '영화평점',
+          /*pieHole:0.4, is3d:true */
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+    <!--Google chart -->
+</head>
+<body>
+    <div data-role="page" id="page1">
+        <!-- header ---------------------------------------------->
+        <div data-role="header" class="bg-header">
+            <h3>영화평점</h3>
+            <a href="index.html" rel="extenal" data-icon="home" date-iconpos="notext">Home</a>
+            <a href="index.html" rel="extenal" data-icon="back" date-iconpos="notext">Prev</a>
+        </div>
+        <!-- header -->
+        <!-- navbar----------------------------------------------->
+        <div data-role="navbar">
+            <ul>
+                <li><a href="introduce01.html" rel="external">영화줄거리</a></li>
+                <li><a href="introduce02.html" rel="external">영화등장인물</a></li>
+                <li><a href="introduce03.html" class="ui-btn-active" rel="external">영화평점</a></li>
+            </ul>
+        </div>
+        <!-- /navbar -->
+        <!-- content --------------------------------------------->
+    <div data-role="ui-content" id="content">
+        <h3>영화평점</h3>
+        <div id="piechart" style="width: 100%; height: 500px;"></div>
+        
+    </div>
+        <!-- content -->
+        <!-- footer ---------------------------------------------->
+    <div data-role="footer">
+        <h3>&copy;CGV.All rights reserved.</h3>
+    </div>
+        <!-- footer -->    
+        
+    </div>
+</body>
+</html>

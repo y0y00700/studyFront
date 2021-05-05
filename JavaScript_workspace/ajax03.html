@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> Ajax </title>
+<script src="js/jquery.js"></script>
+<script>
+$(function() {
+		var href = "http://pjs.dothome.co.kr/member.php?callback=myFnc";
+		$.ajax({
+			url: href,
+			dataType: "jsonp"
+		}).done(function myFnc(data){
+			console.log(data);
+			//data를 파싱해서 화면에 출력
+            if(data.length>0){
+                var $ul=$("<ul/>"); //ul태그를 생성
+                $.each(data,function(i,o){
+                    var $li=$("<li/>");//li태그 생성
+                    $li.append(o.id);
+                    $li.append(",");
+                    $li.append(o.name);
+                    $li.append(",");
+                    $li.append(o.email);
+
+                    $ul.append($li); //ul태그에 li태그 추가
+
+                });
+                $(".wrap").append($ul);// div태그에 (wrap에) $ul추가
+            }
+			
+		});
+});
+</script>
+</head>
+<body>
+	<div class="wrap"></div>
+</body>
+</html>

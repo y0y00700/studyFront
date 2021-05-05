@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Netflix</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- font awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <style>
+        body{background-color: black;}   
+        .container-fluid{color:white;padding: 50px 0;font-size: 20px;}
+        .container-fluid h1{font-size:50px;}  
+        .border-bottom{border-bottom: 10px solid rgb(57, 57, 57);}    
+        nav{
+            width: 100%;
+            height: 70px;
+            background-color: rgba(255,255,255,0);
+            position: absolute;
+            top:0;
+            left:0;
+            z-index: 9999;
+            line-height: 70px;           
+        }
+        .btn-danger{background-color: red;}
+        #netflix-logo     {fill:red !important;}
+        #title{
+            position: relative;
+            background-image: url("img/title.jpg");
+            width: 100%;height: 800px; 
+                           
+        }
+        
+        #img-filter{
+            width:100%;
+            height: 100%;
+            position: absolute;
+            top:0;
+            bottom:0;
+            background-image: linear-gradient(to right,rgba(14, 13, 13, 1),rgba(32, 32, 32, 0),rgba(7, 7, 7, 1));
+          
+        }   
+        .title-box{ 
+            margin-top: 300px !important;
+            left:0;
+            top: 300px !important;  
+            color: rgba(255,255,255,1) !important;    
+        }     
+        .tv-box{
+            width:100% !important;
+            overflow: hidden;            
+          
+        }
+        .tv-box img{
+            max-width: 100%;
+            height: auto;
+        }
+        #video-box{
+            position: absolute;
+            z-index: -9999;    
+            width: 100%;
+            height: 100%;
+            max-width: 73%;
+            max-height: 54%;            
+            top: 46%;
+            left: 50%;            
+            transform: translate(-50%,-50%);        
+        }
+        #video-box video{
+            width:100%;
+            height: 100%;
+        }
+        #video-box2{
+            position: absolute;
+            z-index: -9999;    
+            width: 100%;
+            height: 100%;
+            max-width: 56%;
+            max-height: 54%;            
+            top: 45%;
+            left: 50%;            
+            transform: translate(-50%,-70%);        
+        }
+        
+        #video-box2 video{
+            width:100%;
+            height: 100%;
+        }
+
+
+        #contents .col-sm-6:nth-child(1){float:right;}
+        #contents .col-sm-6:nth-child(2){float:left;}
+        #contents-box img{width: 100%;}
+        #gif-box{
+            border:3px solid gray;
+            border-radius: 15px;
+            width: 350px;
+            height: 100px;
+            padding:20px; 
+            margin:auto;            
+        }
+        #gif-box img{
+            width:45px;
+            height:64px;
+            float: left;
+            margin-right: 10px;
+            
+        }        
+        #gif-box::after{
+            background-image: url("img/download-icon.gif");
+            content: "";
+            display: inline-block;
+            background-size: 100%;
+            width:48px;
+            height: 60px;
+            float: right;
+        }
+       
+
+        .accordion {
+            background-color: #eee;
+            color: #444;
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 20px;
+            transition: 0.4s;
+        }
+
+        .active, .accordion:hover {
+            background-color: #ccc;
+        }
+
+        .accordion:after {
+            content: '\002B';
+            color: #777;
+            font-weight: bold;
+            float: right;
+            margin-left: 5px;
+        }
+
+        .active:after {
+            content: "\2212";
+        }
+
+        .panel {
+            padding: 0 18px;
+            background-color: white;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.2s ease-out;
+        }
+        #qna .container{ width:900px !important;}
+        #qna .panel{
+            border-radius: 0;  
+            color:rgb(78, 77, 77) !important;  
+            font-size: 25px;            
+        }
+        
+        #sitemap .col-sm-3{
+            line-height: 30px;
+        }
+        @media screen and (max-width:767px) {
+            #contents .col-sm-6:nth-child(1){float: none !important;}
+            #contents .col-sm-6:nth-child(2){float: none !important;}
+            .container-fluid{
+                text-align: center;
+            }
+            .container-fluid h1{font-size: 35px;}
+            #sitemap, #footer{
+                text-align: left !important;
+            }
+            #title form{
+                width:300px;
+                margin: auto;
+            }            
+            #qna .container{ width:90% !important;}
+           
+        }
+
+    </style>
+</head>
+<body>
+    <!-- 네비게이션 ----------------------------------------------------------------->
+    <nav>        
+          <div style="position:absolute;left:20px;top:15px !important;">                
+            <a href="#">
+                <svg width="150" height="30" viewBox="0 0 111 30"><g id="netflix-logo"><path d="M105.06233,14.2806261 L110.999156,30 C109.249227,29.7497422 107.500234,29.4366857 105.718437,29.1554972 L102.374168,20.4686475 L98.9371075,28.4375293 C97.2499766,28.1563408 95.5928391,28.061674 93.9057081,27.8432843 L99.9372012,14.0931671 L94.4680851,-5.68434189e-14 L99.5313525,-5.68434189e-14 L102.593495,7.87421502 L105.874965,-5.68434189e-14 L110.999156,-5.68434189e-14 L105.06233,14.2806261 Z M90.4686475,-5.68434189e-14 L85.8749649,-5.68434189e-14 L85.8749649,27.2499766 C87.3746368,27.3437061 88.9371075,27.4055675 90.4686475,27.5930265 L90.4686475,-5.68434189e-14 Z M81.9055207,26.93692 C77.7186241,26.6557316 73.5307901,26.4064111 69.250164,26.3117443 L69.250164,-5.68434189e-14 L73.9366389,-5.68434189e-14 L73.9366389,21.8745899 C76.6248008,21.9373887 79.3120255,22.1557784 81.9055207,22.2804387 L81.9055207,26.93692 Z M64.2496954,10.6561065 L64.2496954,15.3435186 L57.8442216,15.3435186 L57.8442216,25.9996251 L53.2186709,25.9996251 L53.2186709,-5.68434189e-14 L66.3436123,-5.68434189e-14 L66.3436123,4.68741213 L57.8442216,4.68741213 L57.8442216,10.6561065 L64.2496954,10.6561065 Z M45.3435186,4.68741213 L45.3435186,26.2498828 C43.7810479,26.2498828 42.1876465,26.2498828 40.6561065,26.3117443 L40.6561065,4.68741213 L35.8121661,4.68741213 L35.8121661,-5.68434189e-14 L50.2183897,-5.68434189e-14 L50.2183897,4.68741213 L45.3435186,4.68741213 Z M30.749836,15.5928391 C28.687787,15.5928391 26.2498828,15.5928391 24.4999531,15.6875059 L24.4999531,22.6562939 C27.2499766,22.4678976 30,22.2495079 32.7809542,22.1557784 L32.7809542,26.6557316 L19.812541,27.6876933 L19.812541,-5.68434189e-14 L32.7809542,-5.68434189e-14 L32.7809542,4.68741213 L24.4999531,4.68741213 L24.4999531,10.9991564 C26.3126816,10.9991564 29.0936358,10.9054269 30.749836,10.9054269 L30.749836,15.5928391 Z M4.78114163,12.9684132 L4.78114163,29.3429562 C3.09401069,29.5313525 1.59340144,29.7497422 0,30 L0,-5.68434189e-14 L4.4690224,-5.68434189e-14 L10.562377,17.0315868 L10.562377,-5.68434189e-14 L15.2497891,-5.68434189e-14 L15.2497891,28.061674 C13.5935889,28.3437998 11.906458,28.4375293 10.1246602,28.6868498 L4.78114163,12.9684132 Z" id="Fill-14"></path></g></svg>
+            </a>
+          </div>
+          <div style="position:absolute;right:20px;top:0;">            
+                <div class="dropdown" style="float:left;margin-right: 10px;">
+                    <button class="btn btn-default dropdown-toggle" style="width:100px;text-align: left;" type="button" data-toggle="dropdown">
+                        <i class="fas fa-globe"></i>
+                        한국어                        
+                        <span class="caret"></span></button>
+                    <ul class="dropdown-menu" style="min-width:100px !important;top:50px;">
+                      <li><a href="#">한국어</a></li>
+                      <li><a href="#">영어</a></li>                      
+                    </ul>
+                </div>
+                <a href="#" class="btn btn-danger">로그인</a>                
+          </div>
+        
+    </nav>
+    <!-- 네비게이션 -->
+    <!-- 타이틀 -------------------------------------------------------------------->
+    <div id="title" class="container-fluid text-center border-bottom">
+        <div id="img-filter"></div>
+        <div class="title-box">   
+            <h1>영화,TV프로그램을<br>무제한으로...</h1>
+            <h3>다양한 디바이스에서 시청하세요. 언제든 해지하실 수 있습니다.</h3>
+            <p>시청할 준비가 되셨나요? 멤버십을 등록하거나 재시작하려면 이메일 주소를 입력하세요.</p>
+            <form class="form-inline">
+                <div class="input-group">
+                  <input type="email" class="form-control" size="50" placeholder="Email Address" required>
+                  <div class="input-group-btn">
+                    <button type="button" class="btn btn-danger">시작하기</button>
+                  </div>
+                </div>
+            </form>            
+        </div>
+                
+    </div>
+    <!-- 타이틀 -->
+    <!-- tv로 즐기세요 ---------------------------------------------------------------->
+    <div id="tv" class="container-fluid border-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>TV로 즐기세요.</h1>
+                    스마트 TV, PlayStation, Xbox, Chromecast, Apple TV, 블루레이 플레이어 등 다양한 디바이스에서 시청하세요.
+                </div>
+                <div class="col-sm-6">
+                    <div class="tv-box">                        
+                        <img src="img/tv.png" alt="tv-box">
+                        <div id="video-box">
+                            <video loop autoplay muted>
+                                <source src="img/video.m4v" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- TV로 즐기세요 -->
+    <!-- 즐겨보는 컨텐츠 --------------------------------------------------------------->
+    <div id="contents" class="container-fluid border-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>즐겨 보는 콘텐츠를<br> 저장해 오프라인으로<br> 시청하세요.</h1>
+                    <p>간편하게 저장하고 빈틈없이 즐겨보세요.</p>
+                </div>
+                <div class="col-sm-6">
+                    <div id="contents-box">
+                        <img src="img/pic01.jpg" alt="contents-box">
+                        <div id="gif-box">
+                            <img  src="img/pic02.png" alt="기묘한이야기">                            
+                            <div style="float: left;">
+                                기묘한 이야기<br>
+                                저장중...
+                            </div>                              
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 즐겨보는 컨텐츠 -->
+    <!-- 다양한 디바이스에서 -------------------------------------------------->
+    <div id="device" class="container-fluid border-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h1>다양한 디바이스에서<br> 시청하세요.</h1>
+                    각종 영화와 TV 프로그램을 스마트폰, 태블릿, 노트북, TV에서 무제한으로 스트리밍하세요. 추가 요금이 전혀 없습니다.
+                </div>
+                <div class="col-sm-6">
+                    <div class="tv-box">                        
+                        <img src="img/imac.png" alt="tv-box">
+                        <div id="video-box2">
+                            <video loop autoplay muted>
+                                <source src="img/video2.m4v" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 다양한 디바이스에서 -->
+    <!-- 자주 묻는 질문 ------------------------------------------------------------------->
+    <div id="qna" class="container-fluid border-bottom text-center">
+        <div class="container">
+            <h1>자주 묻는 질문</h1>
+            
+            <button class="accordion">넷플릭스란 무엇인가요?</button>
+            <div class="panel">
+                <p>넷플릭스는 각종 수상 경력에 빛나는 TV 프로그램, 영화, 애니메이션, 다큐멘터리 등 다양한 콘텐츠를 인터넷 연결이 가능한 수천 종의 디바이스에서 시청할 수 있는 스트리밍 서비스입니다.</p>
+
+                <p>저렴한 월 요금으로 일체의 광고 없이 원하는 시간에 원하는 만큼 즐길 수 있습니다. 무궁무진한 콘텐츠가 준비되어 있으며 매주 새로운 TV 프로그램과 영화가 제공됩니다.</p>
+            </div>
+
+            <button class="accordion">넷플릭스 요금은 얼마인가요?</button>
+            <div class="panel">
+            <p>스마트폰, 태블릿, 스마트 TV, 노트북, 스트리밍 디바이스 등 다양한 디바이스에서 월정액 요금 하나로 넷플릭스를 시청하세요. 멤버십 요금은 월 9,500원부터 14,500원까지 다양합니다. 추가 비용이나 약정이 없습니다.</p>
+            </div>
+
+            <button class="accordion">어디에서 시청할 수 있나요?</button>
+            <div class="panel">
+            <p>다양한 디바이스에서 언제 어디서나 시청할 수 있습니다. 넷플릭스 계정으로 로그인하면 PC에서 netflix.com을 통해 바로 시청할 수 있으며, 인터넷이 연결되어 있고 넷플릭스 앱을 지원하는 디바이스(스마트 TV, 스마트폰, 태블릿, 스트리밍 미디어 플레이어, 게임 콘솔 등)에서도 언제든지 시청할 수 있습니다.
+
+                iOS, Android, Windows 10용 앱에서는 좋아하는 프로그램을 저장할 수도 있습니다. 저장 기능을 이용해 이동 중이나 인터넷에 연결할 수 없는 곳에서도 시청하세요. 넷플릭스는 어디서든 함께니까요.</p>
+            </div>
+
+            <button class="accordion">멤버십을 해지하려면 어떻게 하나요?</button>
+            <div class="panel">
+                <p>넷플릭스는 부담 없이 간편합니다. 성가신 계약도, 약정도 없으니까요. 멤버십 해지도 온라인에서 클릭 두 번이면 완료할 수 있습니다. 해지 수수료도 없으니 원할 때 언제든 계정을 시작하거나 종료하세요.</p>
+            </div>
+
+            <button class="accordion">넷플릭스에서 어떤 컨텐츠를 시청할 수 있나요?</button>
+            <div class="panel">
+                <p>넷플릭스는 장편 영화, 다큐멘터리, TV 프로그램, 애니메이션, 각종 상을 수상한 넷플릭스 오리지널 등 수많은 콘텐츠를 확보하고 있습니다. 마음에 드는 콘텐츠를 원하는 시간에 원하는 만큼 시청하세요.</p>
+            </div>
+
+            <script>
+            var acc = document.getElementsByClassName("accordion");
+            var i;
+
+            for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function() {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.maxHeight) {
+                panel.style.maxHeight = null;
+                } else {
+                panel.style.maxHeight = panel.scrollHeight + "px";
+                } 
+            });
+            }
+            </script>
+        </div>
+    </div>
+    <!-- 자주묻는 질문 -->
+    <!-- Site Map -------------------------------------------------------------------->
+    <div id="sitemap" class="container-fluid">
+        <div class="container" >
+            질문이 있으신가요? 문의 전화:  00-308-321-0058
+            <div class="row">
+                <div class="col-sm-3">
+                    자주 묻는 질문<br>
+                    투자정보<br>
+                    개인정보<br>
+                    속도 테스트<br>
+                </div>
+                <div class="col-sm-3">
+                    고객센터<br>
+                    입사정보<br>
+                    쿠키설정<br>
+                    법적고지<br>
+                </div>
+                <div class="col-sm-3">
+                    계정<br>
+                    Netflix 지원 디바이스<br>
+                    회사 정보<br>
+                    Netflix 오리지널
+                </div>
+                <div class="col-sm-3">
+                    미디어센터<br>
+                    이용약관<br>
+                    문의하기
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Site Map -->
+    <!-- footer ----------------------------------------------------------------------->
+    <div id="footer" class="container-fluid">
+        <div class="container">
+            <p>Netflix 대한민국</p>
+
+            <div>넷플릭스서비시스코리아 유한회사 통신판매업신고번호: 제2018-서울종로-0426호 전화번호: 00-308-321-0058</div>
+            <div>대표: 레지널드 숀 톰프슨</div>
+            <div>이메일 주소: korea@netflix.com</div>
+            <div>주소: 대한민국 서울특별시 종로구 우정국로 26, 센트로폴리스 A동 20층 우편번호 03161</div>
+            <div>클라우드 호스팅: Amazon Web Services Inc.</div>
+            <div>공정거래위원회 웹사이트 링크</div>
+        </div>
+    </div>
+    <!-- footer -->
+</body>
+</html>

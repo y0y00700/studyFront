@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<title> Ajax </title>
+<script src="js/jquery.js"></script>
+<script>
+$(function() {
+		var href = "http://pjs.dothome.co.kr/member.php?callback=myFnc";
+		$.ajax({
+			url: href,
+			dataType: "jsonp"
+		}).done(function myFnc(data){
+			console.log(data);
+			//data를 파싱해서 화면에 출력
+			
+		});
+});
+</script>
+</head>
+<body>
+	<div class="wrap"></div>
+</body>
+</html>

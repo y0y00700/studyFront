@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Active</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        .active{
+            color:red;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#nav a").click(function(){
+                $("#nav a").removeClass("active");//초기화
+                $(this).addClass("active");//클릭한 링크 active
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="nav">
+        <a href="#">회사소개</a>
+        <a href="#">회사연혁</a>
+        <a href="#">과정소개</a>
+    </div>
+</body>
+</html>

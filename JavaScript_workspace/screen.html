@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Screen</title>
+    <script>
+        console.log(screen.width);
+        console.log(screen.height);
+        console.log(screen.availWidth);//작업표시줄을 제외하고 계산
+        console.log(screen.availHeight); // 작업표시줄을 제외하고 계산
+
+        popupX=(screen.width-500)/2;
+        popupY=(screen.height-700)/2;
+        window.open("http://pjs.dothome.co.kr/movie","movie","width=500,height=700,left="+popupX+",top="+popupY);
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

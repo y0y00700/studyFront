@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>솔져</title>
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+    <div data-role="page" id="page1">
+        <!-- header ---------------------------------------------->
+        <div data-role="header">
+            <h3>영화관위치</h3>
+            <a href="index.html" rel="external" data-icon="home" date-iconpos="notext">Home</a>
+            <a href="index.html" rel="external" data-icon="back" date-iconpos="notext">Prev</a>
+        </div>
+        <!-- header -->
+        <!-- content --------------------------------------------->
+    <div data-role="ui-content">
+               <!-- 카카오맵 ----------------------------------------------->
+               <div id="kakaomap" style="width: 100%;height: 500px;"></div>
+               <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=a88518344b979ce6555c1124f9ed368d"></script>
+               <script> 
+       
+                   var mapContainer = document.getElementById('kakaomap'), // 지도를 표시할 div 
+                    mapOption = { 
+                           center: new daum.maps.LatLng(37.50173744296764, 127.0263297288358), // 지도의 중심좌표
+                           level: 3 // 지도의 확대 레벨
+                       };
+       
+                   var map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+       
+                   // 마커가 표시될 위치입니다 
+                   var markerPosition  = new daum.maps.LatLng(37.50173744296764, 127.0263297288358); 
+       
+                   // 마커를 생성합니다
+                   var marker = new daum.maps.Marker({
+                       position: markerPosition
+                   });
+       
+                   // 마커가 지도 위에 표시되도록 설정합니다
+                   marker.setMap(map);
+       
+               </script>
+               <!-- 카카오맵.끝.-->
+
+    </div>
+        <!-- content -->
+        <!-- footer ---------------------------------------------->
+    <div data-role="footer">
+        <h3>&copy;CGV.All rights reserved.</h3>
+    </div>
+        <!-- footer -->    
+        
+    </div>
+</body>
+</html>
