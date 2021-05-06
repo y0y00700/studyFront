@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js</title>
+</head>
+<body>
+    <div id="app">
+        <h1 v-if="value >5 ">value가 5보다 큽니다.</h1>
+        <h1 v-else-if="value==5">value가 5입니다.</h1>
+        <h1 v-else>value가 5보다 작습니다.</h1>
+        <h1 v-pre>{{작성한대로 출력됨.'{{~}}'그대로 출력}}</h1>
+        <img v-bind:src="smile?feelsgood:feelsbad">
+        <!-- <img :src="smile?feelsgood:feelsbad"와같음 -->
+
+        <h2>오늘 할 일</h2>
+        <ul>
+            <li v-for="(todo,index) in todos">{{index}}.{{todo.text}}</li>
+        </ul>
+
+    </div>    
+
+    <script src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script>
+        // 새로운 뷰를 정의합니다
+        var app = new Vue({
+        el: '#app', // 어떤 엘리먼트에 적용을 할 지 정합니다
+            // data 는 해당 뷰에서 사용할 정보를 지닙니다
+            data: {
+                value:5,
+                smile:true,
+                feelsgood:'/img/pic01.jpg',
+                feelsbad:'/img/pic02.jpg',
+                todos:[
+                    {text:'Vue.js튜토리얼 작성하기'},
+                    {text:'WebPack2 알아보기'},
+                    {text:'사이드 프로젝트 진행하기'}
+                ]
+            }   
+        });
+
+        app.name="홍길동";
+    </script>
+</body>
+</html>
