@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Important in JavaScript</title>
+    <script>
+        //객체
+        var tv = new Object();
+        tv.color="white";
+        tv.price=300000;
+        tv.info=function(){
+            document.write("tv색상:"+this.color,"<br>");
+            document.write("tv가격"+this.price,"<br>");
+        var car={
+            color:"black",
+            price:5000000,
+            info:function(){
+                document.write("car색상:"+this.color,"<br>");
+                document.write("car가격:"+this.price,"<br>");
+            }
+        }
+    }
+        // 통상적인 방식은 
+        // var className {
+        //     attr1: value,
+        //     attr2: value2 
+        //     .....
+        //     functionName:function(){
+        //         functionCode
+        //     }
+        // }
+        // 구조로 클래스를 생성한다.
+        // document.write("<h1>tv 객체 메서드 호출</h1>");
+        // tv.info();
+        // document.write("<h2>car 객체 메서드 호출</h2>");
+        // car.info();
+        // //Date 객체
+        // var today=new Date();
+        // var nowMonth=today.getMonth(),
+        // nowDate=today.getDate(),
+        // nowDay=today.getDay();
+
+        // document.write("<h1>오늘 날짜 정보 </h1>");
+        // document.write("현재 월:"+nowMonth,"<br>");
+        // document.write("현재 일"+nowDate,"<br>");
+        // document.write("현재 요일"+nowDay,"<br>");
+
+        // var worldcup=new Date(2002,4,32);
+        // var theMonth=worldcup.getMonth(),
+        // var theDate=worldcup.getDate(),
+        // var theDay=worldcup.getDay();
+        // document.write("<h1>월드컵 일자</h1>","<br>");
+        // document.write("월드컵 월:"+theMonth+" 일: "+theDate+" 요일"+theDay);
+        // }
+
+        //배열 객체에 저장된 데이터 불러오기
+        // var arr=[30,"따르릉",true];
+        
+        // document.write("<h3>배열값 가져오기 -1</h3>");
+        // document.write(arr[0],"<br>");
+        // document.write(arr[2],"<br>");
+
+        // //배열 객체 method
+        // var arr_1=["사당","교대","방배","강남"];
+        // var arr_2=["신사","압구정","옥수"];
+
+        // var result=arr_1.join("-");
+        // console.log(result);
+        
+        // var result=arr_1.concat(arr_2);
+        // console.log(result);
+
+        // var result=arr_1.slice(1,3);
+        // console.log(result);
+
+        // arr_1.sort();
+        // console.log(arr_1);
+        
+        // arr_2.reverse()
+        // console.log(arr_2);
+
+        //브라우저에 내장된 객체 *window는 브라우저 객체의 최상위 객체이며, windowa객체에는 하위 객체들이 포함되어있다.
+        //open("URL","새창 이름", "새창 옵션")
+        //alert(data); 경고창을 나타내고 데이터 보여준다.
+        //prompt("질문","답변"); 질문과 답변으로 질의 응답 창을 나타냄
+
+        // if(true){
+        //     confirm("정말로 삭제하시겠습니까?");
+        // }
+        // setInterval(function() {document.write("code.."),document.write("시간간격")});
+        // setTimeout(function(){document.write("code...."),document.write("시간간격")});
+        //기본 형태
+        // var a = setInterval(function(){코드},시간 간격(ms));
+        // var b = setInterval("코드",시간간격);
+
+        // var intv=setInterval(function(){i++;},3000);
+        // var intv=setInterval("i++",3000);
+        
+        
+    </script>
+</head>
+<body>
+    <p>
+        <img src="img/window_object_1.jpg" usemap="#intro" alt="신간소개">
+        <map name="intro" id="intro">
+            <area shape ="rect" coords="230,368,280,390" href="#" alt="창 닫기" onclick="window.close();">
+        </map>
+    </p>
+    
+</body>
+</html>
